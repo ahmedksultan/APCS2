@@ -1,0 +1,11 @@
+Use the definition of big-Oh notation, show that
+g(n) = 2nlogn + 3n^2 + n + 1 is O(n^2).
+
+definition of big-Oh notation: how programmers talk about algorithm runtime
+  O(n), or ORDER of N/OH of N, refers to the complexity of the algorithm
+  big-Oh notation is in orders of MAGNITUDE
+  (whole function is defined by it's highest order of magnitude)
+
+Thus, using this definition, we can surmise that ...
+g(n) = 2logn + 3n^2 + n + 1 is an O(n^2) algorithm
+as the highest order of magnitude present is n^2 (term: 3N)

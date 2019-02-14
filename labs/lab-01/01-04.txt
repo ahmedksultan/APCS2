@@ -1,0 +1,27 @@
+//I worked with Zeynep for this proof.
+
+Try to finish the proof that the search in question 3 is O(logN) where logN has a base of 2.
+
+   Assume N is a power of 2, write N = 2^n, where n = logN. Now let
+   T(N) be the number of questions. The recursive stategy immediately
+   implies that T(N) must satisfy the following recurrence relation:
+
+           T(N) = T(N/2) + 1
+           with T(1) = 1.
+
+N is a power of 2
+N = 2^n, n = log2(N)
+T(N) = # of questions
+
+//(T(1) = 1)
+T(N) = T(N/2) + 1
+//2: T(N) = T(N/2^2) + 2
+//3: T(N) = T(N/2^3) + 3
+
+T(N) = T(N/2^n) + n(1)
+T(N/N) = 1
+T(N) = 1 + n(1) ... n = log2(N)
+
+therefore:
+
+question #3 is O(logN), when n > 1
