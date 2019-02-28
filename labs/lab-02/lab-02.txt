@@ -1,8 +1,8 @@
 1. Write a program SortStats, that keeps track of the elapsed time
-   as it executes the sort procedures: BubbleSort, BubbleShort, 
-   SelectionSort and InsertionSort. Use the Stopwach class to measure
-   the elapesed time. The program should produce, for each sort, a table 
-   of the observed running times for a predeficed set of sizes, as 
+   as it executes the sort procedures: BubbleSort, BubbleShort,
+   SelectionSort and InsertionSort. Use the Stopwatch class to measure
+   the elapsed time. The program should produce, for each sort, a table
+   of the observed running times for a predefined set of sizes, as
    shown in the following sample run:
 
 
@@ -13,25 +13,25 @@
 	  100   |     0.00000880
 	 1000   |     0.00012000
 	10000   |     0.00170000
-       100000   |     0.02440000
-      1000000   |     0.20900000
+ 100000   |     0.02440000
+1000000   |     0.20900000
 
 
 2. Write a program SearchStats, that generates a table computing the
-   performance of two algorithms - linear and binary search- when
-   used to fina a randomly chosen integer key in a sorted array
+   performance of two algorithms - linear and binary search - when
+   used to find a randomly chosen integer key in a sorted array
    of integers.
 
-   Sample output
+Sample output
 
       N		| Linear    | Binary
    ---------------------------------
 	  10    |     6.6   |   2.6
 	  50    |    30.9   |   4.5
-         100    |    63.0   |   5.4
-         500    |   316.9   |   7.6
-        1000    |   572.0   |   8.7
+   100    |    63.0   |   5.4
+   500    |   316.9   |   7.6
+  1000    |   572.0   |   8.7
 	5000    |  3222.9   |  11.1
-       10000    |  5272.9   |  12.0
-       50000    | 34917.2   |  14.6
-      100000    | 68825.9   |  15.6
+ 10000    |  5272.9   |  12.0
+ 50000    | 34917.2   |  14.6
+100000    | 68825.9   |  15.6

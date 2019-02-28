@@ -2,7 +2,7 @@ public class Stopwatch{
 
     private long startTime;
     private long endTime;
-    
+
     public Stopwatch(){
 	startTime = endTime = 0;
     }
@@ -20,9 +20,6 @@ public class Stopwatch{
 	return endTime - startTime;
     }
 
-
-
-
     public static void main(String [] args){
 	Stopwatch timer = new Stopwatch();
 	long stop = 100;
@@ -36,5 +33,5 @@ public class Stopwatch{
 	}
     }
 
-    
+
 }
