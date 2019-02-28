@@ -1,0 +1,55 @@
+
+1. Draw a trace diagram for the merge sort algorithm on
+   the sequence:   5,1,8,4,2,9,3.
+
+
+2. Finish the merge method started in class.
+
+   Sample method call:
+
+       merge([2,6,7], [1,3,8,9]) -> [1,2,3,6,7,8,9]
+
+
+
+
+   // pre: a and b are sorted in ascending order
+   // post: returns an array that contains every element of a and b
+   //       in ascending order. No side effects are produced.
+   //       Must be O(N) in both space and time.
+    public static int[] merge(int [] a , int [] b){
+           final int N1 = a.length;
+           final int N2 = b.length;
+           final int N = N1 + N2;
+           int[] ans = new int[N];   // O(N) additional space
+           int i = 0, j = 0, k = 0;
+           // O(N)
+           while (k < N){
+                 if (i >= N1 || j >= N2) break;
+		 // i,j and k are in-bounds
+                 if (a[i] < b[j]) ans[k++] = a[i++];
+                 else ans[k++] = b[j++];
+           }
+           //************ YOUR CODE GOES HERE ******************
+    }
+
+
+3. Write a recursive static method to compute the floor of the
+   logarithm base 2 of n.
+
+
+   Test Cases:
+   log(1) returns 0
+   log(2) returns 1
+   log(3) returns 1
+   log(4) returns 2
+   log(5) returns 2
+   log(8) returns 3
+
+   Use the method heading:
+   // pre: n >= 1
+   // post: returns the floor of the logarithm base 2 of n.
+   public static int log(int n){}
+
+
+4. Use big-o notation to classify the runtime of your solution from
+   question 3.
