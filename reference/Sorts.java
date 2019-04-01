@@ -23,4 +23,30 @@ public class Sorts {
 
     aux = data; //copying data into aux
   }
+
+  /* ----------------------------------- */
+
+  //QUICK SORT
+
+  /* After each partition,
+        1. The pivot, data[j], is in place
+        2. Elements within [lo, j] are less than/equal to the pivot
+        3. Elements within [j+1, hi] are greater than/equal to the pivot
+  */
+
+  public static void quickSort(int[] data) {
+    qsHelper(data, 0, data.length);
+  }
+
+  private static void qsHelper(int[] data, int lo, int hi) {
+    final int N = hi - lo;
+    if (N <= 1) return;
+    int p = partition(data, lo, hi); //O(N)
+    qsHelper(data, lo, p);
+    qsHelper(data, p+1, hi);
+  }
+
+  public static int partition(int[] data, int lo, int hi) {
+    return 0;
+  }
 }
