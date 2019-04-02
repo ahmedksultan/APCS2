@@ -13,6 +13,7 @@ public class Evaluator{
         return tokens;
     }
 
+    //PART 2 - write evaluate(String[] expTokens)
     // precondition: receives an array of the tokens of an infix expression.
     //               tokens must be one of the following:
     //               (),+-*/%,sqrt
@@ -28,32 +29,56 @@ public class Evaluator{
       System.out.println(Arrays.toString(expTokens));
 
       for (String x: expTokens) {
-        if (ops.contains(x) || x.equals("sqrt")) {
+        if (x.equals(")")) {
+          calculate(operands, operators);
+        }
+        else if (ops.contains(x) || x.equals("sqrt")) {
           operators.push(x);
         }
-        else if (!x.equals("(") && !x.equals(")")) {
+        else if (!x.equals("(")) {
           operands.push(Double.parseDouble(x));
         }
       }
 
-      System.out.println(operators);
-      System.out.println(operands);
+      return operands.peek();
+    }
 
-      System.out.println("Adding begins here!");
-
-      if ((int)operators.pop().charAt(0) == 43) {
-        Double val1 = operands.pop();
-        Double val2 = operands.pop();
-        System.out.println("\nval1: " + val1 + "\nval2: " + val2 + "\n");
-        result = val1 + val2;
+    public static void calculate(Stack<Double> operands, Stack<String> operators) {
+      Double val1;
+      Double val2;
+      switch (operators.pop()) {
+        case "+":
+          val1 = operands.pop();
+          val2 = operands.pop();
+          operands.push(val1 + val2);
+          break;
+        case "-":
+          val1 = operands.pop();
+          val2 = operands.pop();
+          operands.push(val2 - val1);
+          break;
+        case "*":
+          val1 = operands.pop();
+          val2 = operands.pop();
+          operands.push(val1 * val2);
+          break;
+        case "/":
+          val1 = operands.pop();
+          val2 = operands.pop();
+          operands.push(val2 / val1);
+          break;
+        case "%":
+          val1 = operands.pop();
+          val2 = operands.pop();
+          operands.push(val2 % val1);
+          break;
+        case "sqrt":
+          val1 = operands.pop();
+          operands.push(Math.sqrt(val1));
+          break;
+        default:
+          throw new RuntimeException ("something has gone fatally wrong");
       }
-
-      System.out.println("Adding ends here!");
-
-      System.out.println(operators);
-      System.out.println(operands);
-
-      return result;
     }
 
     ///////////////////////////////////////////////////////
@@ -63,11 +88,11 @@ public class Evaluator{
         String[] expressions = {"(2+3)","(4 + (3 - 2))", "((5 *(10 + (32 - 8))/ 2.0))",
                                 "( sqrt  (16 * 16) )", "(( 25 % 3 ) + 9)"};
         Double[] expectedResults = {5.0,5.0,85.0,16.0,10.0};
-        for (int i = 0; i == 0; i++){
+        for (int i = 0; i < expressions.length; i++){
             String[] tokens = getTokens(expressions[i]);
             Double  ansObserved = evaluate(tokens);
             Double  ansExpected = expectedResults[i];
-            System.out.println(expressions[i] + " = " + evaluate(tokens));
+            System.out.println(expressions[i] + " = " + ansObserved);
             System.out.println("observed: " + ansObserved + " expected: " + ansExpected);
             System.out.println("correct? " + (ansObserved.equals( ansExpected)));
         }

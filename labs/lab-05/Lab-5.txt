@@ -1,5 +1,5 @@
 1. PostScript is a powerful graphics language developed by the Adobe
-   Corporation in the early 1980s. PostScript programs store thier data on a
+   Corporation in the early 1980s. PostScript programs store their data on a
    stack. Many of the operators available in the PostScript language have the
    effect of manipulating the stack in some way. You can, for example,
    invoke the pop operator, which pops the top element off the stack,
@@ -9,7 +9,7 @@
    is the roll operator, which takes two arguments, n and k. The effect of
    applying roll(n,k) is to rotate the top n elements of a stack by k
    positions, where the general direction of the rotation is toward the top
-   of the stack. More specifically, roll(n,k) has the effect  of removing 
+   of the stack. More specifically, roll(n,k) has the effect  of removing
    the top n elements, cycling the top element to the last position k times,
    and then replacing the reordered  elements on the stack. For example,
 
@@ -19,20 +19,20 @@
    | C |    | B |       | C |    | D |       | C |    | C |
    | B | -> | A |       | B | -> | C |       | B | -> | B |
    | A |    | D |       | A |    | A |       | A |    | A |
-           
+
    Write the method
 
          void roll(Stack<String> stack, int n, int k)
 
    that implements the roll(n,k) operation on the specified stack. Your
-   implementation should check that n and k are both nonnegative and that 
-   n is not larger thatn the stack size; if either of these conditions
-   is violated, your implementation should throw a runtime excpetion
+   implementation should check that n and k are both nonnegative and that
+   n is not larger than the stack size; if either of these conditions
+   is violated, your implementation should throw a runtime exception
    with the message
 
             roll: argument out of range
 
-
+------------------------------------------------------------------------
 
 2. Write a program to evaluate a fully parenthesized infix expressions.
    For example, the infix expression ((2 + 3) * 4)  evaluates to 20.
@@ -51,11 +51,11 @@
    returns a String array containing the tokens of the expression.
    The tokens of the expressions include: all numbers, (), +-*/%, and sqrt.
 
-   For example, 
+   For example,
 
-   getTokens("((25 + (sqrt 4) ) - 1.0)") 
+   getTokens("((25 + (sqrt 4) ) - 1.0)")
    returns ["(","(","25","+","(","sqrt", "4",")",")","-","1.0",")",")"]
-   
+
 
    Your task is to complete the function evaluate(String[] expTokens) that
    receives a String array of the tokens and returns the result of evaluating
@@ -65,7 +65,7 @@
        String exp = "((25 + (sqrt 4) ) - 1.0)";
        String [] tokens = getTokens(exp);
        Double result = evaluate(tokens);
-       // result will be 26.0    
+       // result will be 26.0
 
        Use the following algorithm in writitng the evaluate().:
        Have two stacks, one for the operators and one for the operands.
@@ -78,16 +78,16 @@
        onto the operand stack.
        When no more tokens are to be processed, then the top of the operand
        stack should hold the final result.
-  
+
 
 
 Implement the Double evaluate(String[]) function found in Evaluator.java.
 
 
-3, Write a program in which Cookie Monster finds the optimal path from 
+3, Write a program in which Cookie Monster finds the optimal path from
    the upper-left corner(0,0) to the lower-right corner (length - 1, length -1)
    in a cookie-grid (a 2-D array). Each element of the grid contains either
-   some number of cookies (a non-negative integer) or a barrel(-1). On 
+   some number of cookies (a non-negative integer) or a barrel(-1). On
    each step Cookie Monster can only go down or to the right. The monster
    is not allowed to step on barrels. The optimal path contains
    the largest number of cookies.
@@ -95,7 +95,7 @@ Implement the Double evaluate(String[]) function found in Evaluator.java.
    Hints: Use a stack. If there is only one way to proceed from the current
    position, then go there and update the total accumulated number of cookies.
    If there are two ways to proceed, save one of the possible two points
-   (and its total) on the stack and proceed to the other point. If you 
-   have reached the lower-right corner, update the maximum. If there is 
-   nowhere to go, examine the stack: pop a saved point, if any, and 
+   (and its total) on the stack and proceed to the other point. If you
+   have reached the lower-right corner, update the maximum. If there is
+   nowhere to go, examine the stack: pop a saved point, if any, and
    resume from there.
