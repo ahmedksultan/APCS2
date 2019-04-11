@@ -39,7 +39,6 @@ public class Evaluator{
           operands.push(Double.parseDouble(x));
         }
       }
-
       return operands.peek();
     }
 
