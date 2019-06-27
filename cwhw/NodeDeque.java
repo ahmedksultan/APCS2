@@ -40,14 +40,42 @@ public class NodeDeque<E> {
     return HEAD.getNext().getValue();
   }
 
-  public void removeFirst() throws EmptyDequeException {
+  public E getLast() throws EmptyDequeException {
     if (size == 0) {
       throw new EmptyDequeException("Error! Empty DEQUE!");
     }
-    HEAD.setNext(HEAD.getNext().getNext());
-    HEAD.getNext().setPrevious(HEAD);
+    return TAIL.getPrevious().getValue();
   }
 
+  public E removeFirst() throws EmptyDequeException {
+    if (size == 0) {
+      throw new EmptyDequeException("Error! Empty DEQUE!");
+    }
+    DNode<E> temp = HEAD.getNext();
+    HEAD.setNext(temp.getNext());
+    temp.getNext().setPrevious(HEAD);
+    size--;
+
+    //clearing out the removed node
+    E ans = temp.getValue();
+    temp = null;
+    return ans;
+  }
+
+  public E removeLast() throws EmptyDequeException {
+    if (size == 0) {
+      throw new EmptyDequeException("Error! Empty DEQUE!");
+    }
+    DNode<E> temp = TAIL.getPrevious();
+    TAIL.setPrevious(temp.getPrevious());
+    temp.getPrevious().setNext(TAIL);
+    size--;
+
+    //clearing out removed node
+    E ans = temp.getValue();
+    temp = null;
+    return ans;
+  }
 
   public String toString() {
     String ans = "[";
@@ -84,8 +112,11 @@ public class NodeDeque<E> {
     }
     System.out.println(test);
 
-    test.getFirst();
+    System.out.println(test.getFirst());
     test.removeFirst();
+    System.out.println(test);
+    System.out.println(test.getLast());
+    test.removeLast();
     System.out.println(test);
   }
 

@@ -1,6 +1,6 @@
 import java.util. NoSuchElementException;
 
-public class ArrayQueue<E> implements MyQueue<E>{
+public class ArrayQueueV2<E> implements MyQueue<E>{
 
 
     // instance variables
@@ -21,11 +21,12 @@ public class ArrayQueue<E> implements MyQueue<E>{
      */
 
     // constructor
-    public ArrayQueue(int cap){
-	queue = (E[])(new Object[cap + 1]);
-	head = tail = 0;
-	MAX_CAPACITY = cap;
+    public ArrayQueueV2(int cap){
+	     queue = (E[])(new Object[cap + 1]);
+	     head = tail = 0;
+	     MAX_CAPACITY = cap;
     }
+    
     @Override
 	public int size() {
 	final int N = queue.length;
@@ -43,7 +44,7 @@ public class ArrayQueue<E> implements MyQueue<E>{
 	queue[tail] = val;
 	tail = (tail + 1) % (MAX_CAPACITY + 1);
 	return true;
-    } 
+    }
     @Override
 	// inserts E into queue if space available
 	public boolean  offer(E val){
@@ -67,7 +68,7 @@ public class ArrayQueue<E> implements MyQueue<E>{
 	}catch(NoSuchElementException ex){
 	    return null;
 	}
-    }  
+    }
     @Override
 	public E  remove() throws NoSuchElementException{
 	if (isEmpty()) throw new NoSuchElementException("Empty Queue");
@@ -76,7 +77,7 @@ public class ArrayQueue<E> implements MyQueue<E>{
 	head = (head + 1) % (MAX_CAPACITY + 1);
 	return ans;
     }
-   
+
     @Override
 	public String toString(){
 	String ans = "[";
@@ -90,7 +91,7 @@ public class ArrayQueue<E> implements MyQueue<E>{
 
     public static void main(String [] args){
 	MyQueue<String> q = new ArrayQueue<String>(5);
-	System.out.println(q); 
+	System.out.println(q);
 	System.out.println("enqueue: A");
 	q.add("A");
 	System.out.println(q);
@@ -119,6 +120,4 @@ public class ArrayQueue<E> implements MyQueue<E>{
     }
 
 
-}  
-
-  
+}
